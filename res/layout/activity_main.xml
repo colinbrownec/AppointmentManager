@@ -1,0 +1,344 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <View
+        android:id="@+id/top_line"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/horizontalscrollview"
+        android:background="#2d2d2d" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalscrollview"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="#FFF"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/back"
+                android:layout_width="90dp"
+                android:layout_height="fill_parent"
+                android:background="@drawable/holodark_darkblue"
+                android:drawableLeft="@drawable/l_navigation_previous_item"
+                android:gravity="fill_vertical"
+                android:onClick="goBack"
+                android:text="BACK"
+                android:textColor="#DDD"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:layout_toRightOf="@+id/back"
+                android:background="#2d2d2d" />
+
+            <Button
+                android:id="@+id/butt_day0"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="@drawable/holodark_darkblue"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="goDay0"
+                android:padding="8dp"
+                android:text="MONDAY"
+                android:textColor="@color/dark_blue"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#2d2d2d" />
+
+            <Button
+                android:id="@+id/butt_day1"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="@drawable/holodark_darkblue"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="goDay1"
+                android:padding="8dp"
+                android:text="TUESDAY"
+                android:textColor="@color/dark_blue"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#2d2d2d" />
+
+            <Button
+                android:id="@+id/butt_day2"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="@drawable/holodark_darkblue"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="goDay2"
+                android:padding="8dp"
+                android:text="WEDNESDAY"
+                android:textColor="@color/dark_blue"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#2d2d2d" />
+
+            <Button
+                android:id="@+id/butt_day3"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="@drawable/holodark_darkblue"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="goDay3"
+                android:padding="8dp"
+                android:text="THURSDAY"
+                android:textColor="@color/dark_blue"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#2d2d2d" />
+
+            <Button
+                android:id="@+id/butt_day4"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="@drawable/holodark_darkblue"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="goDay4"
+                android:padding="8dp"
+                android:text="FRIDAY"
+                android:textColor="@color/dark_blue"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:layout_toRightOf="@+id/back"
+                android:background="#2d2d2d" />
+
+            <Button
+                android:id="@+id/butt_day5"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="@drawable/holodark_darkblue"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="goDay5"
+                android:padding="8dp"
+                android:text="SATURDAY"
+                android:textColor="@color/dark_blue"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:layout_toRightOf="@+id/back"
+                android:background="#2d2d2d" />
+
+            <Button
+                android:id="@+id/butt_day6"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="@drawable/holodark_darkblue"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="goDay6"
+                android:padding="8dp"
+                android:text="SUNDAY"
+                android:textColor="@color/dark_blue"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:id="@+id/main_grid"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/action_bar"
+        android:layout_below="@+id/horizontalscrollview"
+        android:background="#FFF"
+        android:orientation="horizontal"
+        android:padding="8dp" >
+
+        <LinearLayout
+            android:id="@+id/time_list"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingTop="60dp" >
+
+            <TextView
+                android:id="@+id/sweg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="9:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="10:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="11:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="12:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="1:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="2:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="3:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="4:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="5:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="6:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="4dp"
+            android:background="#888" />
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="#FFF" >
+
+            <LinearLayout
+                android:id="@+id/lin_staff_list"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:paddingRight="4dp"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/action_bar"
+        android:background="#FFF" />
+
+    <LinearLayout
+        android:id="@+id/action_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="46dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/holodark_darkblue"
+            android:gravity="center_horizontal|center_vertical"
+            android:onClick="goDay0"
+            android:padding="8dp"
+            android:text="CHOOSE WEEK"
+            android:textColor="#DDD"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="#2d2d2d" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/holodark_darkblue"
+            android:gravity="center_horizontal|center_vertical"
+            android:onClick="goMakeReservation"
+            android:text="MAKE \n RESERVATION"
+            android:textColor="#DDD"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>
