@@ -41,7 +41,7 @@ public final class R {
     }
     public static final class id {
         public static final int action_bar=0x7f09000b;
-        public static final int action_settings=0x7f09000f;
+        public static final int action_settings=0x7f090010;
         public static final int back=0x7f090002;
         public static final int butt_day0=0x7f090003;
         public static final int butt_day1=0x7f090004;
@@ -54,6 +54,7 @@ public final class R {
         public static final int lin_staff_list=0x7f09000e;
         public static final int main_grid=0x7f09000a;
         public static final int sweg=0x7f09000d;
+        public static final int test=0x7f09000f;
         public static final int time_list=0x7f09000c;
         public static final int top_line=0x7f090000;
     }

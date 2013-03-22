@@ -50,6 +50,7 @@
                 android:gravity="center_horizontal|center_vertical"
                 android:onClick="goDay0"
                 android:padding="8dp"
+                android:tag="day0"
                 android:text="MONDAY"
                 android:textColor="@color/dark_blue"
                 android:textSize="16dp"
@@ -68,6 +69,7 @@
                 android:gravity="center_horizontal|center_vertical"
                 android:onClick="goDay1"
                 android:padding="8dp"
+                android:tag="day1"
                 android:text="TUESDAY"
                 android:textColor="@color/dark_blue"
                 android:textSize="16dp"
@@ -86,6 +88,7 @@
                 android:gravity="center_horizontal|center_vertical"
                 android:onClick="goDay2"
                 android:padding="8dp"
+                android:tag="day2"
                 android:text="WEDNESDAY"
                 android:textColor="@color/dark_blue"
                 android:textSize="16dp"
@@ -104,6 +107,7 @@
                 android:gravity="center_horizontal|center_vertical"
                 android:onClick="goDay3"
                 android:padding="8dp"
+                android:tag="day0"
                 android:text="THURSDAY"
                 android:textColor="@color/dark_blue"
                 android:textSize="16dp"
@@ -291,8 +295,14 @@
                 android:id="@+id/lin_staff_list"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:paddingRight="4dp"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                android:paddingRight="4dp" >
+
+                <ImageView
+                    android:id="@+id/test"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/social_person" />
             </LinearLayout>
         </HorizontalScrollView>
     </LinearLayout>

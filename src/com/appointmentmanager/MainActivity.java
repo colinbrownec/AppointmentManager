@@ -17,8 +17,12 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
 import android.widget.Toast;
+
+import com.parse.Parse;
+import com.parse.ParseACL;
+import com.parse.ParseAnalytics;
+import com.parse.ParseUser;
 
 public class MainActivity extends Activity {
 
@@ -28,6 +32,8 @@ public class MainActivity extends Activity {
 	LinearLayout[] lin_staff;
 	static Context context;
 
+	ImageView iv_portrait;
+
 	int screenWidth, screenHeight, staffAmount;
 
 	@Override
@@ -35,33 +41,10 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
-		
+
 		Log.v("progress","ZZZZZZZZZZZZZZZZZZZZZZ REAL");
-		
+
 		context = this.getApplicationContext();
-
-		// initialize parse
-		//		Parse.initialize(this, "j1KIXfxXQTWXP7B5wa3hOwffvrzmRDBT5EFZ0fhc", "sFOlebSAj3I1eyOG2M4L8TLDjFxyqf8KjnOesoWE");
-		//		ParseUser.enableAutomaticUser();
-		//		ParseACL defaultACL = new ParseACL();
-		//		defaultACL.setPublicReadAccess(true);
-		//		ParseACL.setDefaultACL(defaultACL, true);
-		//		
-		//		
-		//		Log.i("parse", "enter parse");
-		//		ParseQuery query = new ParseQuery("Employees");
-		//		query.findInBackground(new FindCallback() {
-		//			public void done(List<ParseObject> objects, ParseException e) {
-		//				if (e == null) { // if it was successful
-		//					// probably want to call a method
-		//					Log.i("parse", "it did something!");
-		//				} else {
-		//					// handle error
-		//					Log.i("parse", "error");
-		//				}
-		//			}
-		//		});
-
 
 		//numStaff = db.getStaffNumber();
 		final int PORTRAIT_SIZE = 56;
@@ -70,22 +53,35 @@ public class MainActivity extends Activity {
 		dayList = new String[7];
 		butt_day = new Button[7];
 		lin_staff = new LinearLayout[staffAmount];
-
+		//
 		DisplayMetrics metrics =  new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
 		LinearLayout lin_staffList = (LinearLayout) findViewById(R.id.lin_staff_list);
-		
-		int[] portaitID = new int[staffAmount];
-		portaitID[0] = R.drawable.staff0;
+
+		final int[] portaitID = new int[staffAmount];
+		portaitID[0] = R.drawable.social_person;
 		portaitID[1] = R.drawable.staff1;
 		portaitID[2] = R.drawable.staff2;
 		portaitID[3] = R.drawable.staff3;
 		portaitID[4] = R.drawable.staff4;
 		portaitID[5] = R.drawable.staff5;
 		portaitID[6] = R.drawable.staff6;
-		
-		
+
+		iv_portrait = (ImageView) findViewById(R.id.test);
+
+		// initialize parse
+		Parse.initialize(this, "j1KIXfxXQTWXP7B5wa3hOwffvrzmRDBT5EFZ0fhc", "sFOlebSAj3I1eyOG2M4L8TLDjFxyqf8KjnOesoWE");
+		ParseUser.enableAutomaticUser();
+		ParseACL defaultACL = new ParseACL();
+		defaultACL.setPublicReadAccess(true);
+		ParseACL.setDefaultACL(defaultACL, true);
+
+		ParseAnalytics.trackAppOpened(getIntent());
+
+		getParseInformation task = new getParseInformation(iv_portrait);
+		task.execute();
+
 		//Create staff linear layout
 		LinearLayout.LayoutParams lps = new LinearLayout.LayoutParams(
 				LinearLayout.LayoutParams.WRAP_CONTENT, 
@@ -96,14 +92,14 @@ public class MainActivity extends Activity {
 			lin_staff[i].setLayoutParams(lps);
 			lin_staff[i].setOrientation(1);
 			lin_staffList.addView(lin_staff[i]);
-			
+
 			ImageView portrait = new ImageView(this);
 			portrait.setImageResource(portaitID[i]);  
 			portrait.setLayoutParams(new LinearLayout.
 					LayoutParams(toPX(PORTRAIT_SIZE), toPX(PORTRAIT_SIZE)));
 			lin_staff[i].addView(portrait);
 		}
-		
+
 		ArrayList<ArrayList<String>> staffTimeList = 
 				new ArrayList<ArrayList<String>> (staffAmount);
 
@@ -117,7 +113,7 @@ public class MainActivity extends Activity {
 
 		screenWidth = metrics.widthPixels;
 		screenHeight = metrics.heightPixels;
-		
+
 		for (int i=1; i<staffAmount;i++) {
 			addBlock(i*(screenHeight-toPX(108)-toPX(56))/9, 0xAA6DDE3B, lin_staff[i]);
 		}
@@ -132,7 +128,7 @@ public class MainActivity extends Activity {
 
 		String[] daysOfWeek = { "MONDAY", "TUESDAY", "WEDNESDAY",
 				"THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"};
-		
+
 		String dayOfTheWeek = new SimpleDateFormat("EEEE").format(new Date());
 
 		for (int i=0; i<daysOfWeek.length;i++) {
@@ -176,38 +172,38 @@ public class MainActivity extends Activity {
 		String[] tempString = null;
 		if (timeList == null || timeList.size() == 0) return;
 		for (int i=0; i<timeList.size();i++) {
-//			if (prevTime == 0){
-//				
-//				Log.i("progress", ""+tempString);
-//				tempString = timeList.get(i).split(":");
-//				timePeriod = Integer.parseInt(tempString[1])-Integer.parseInt(tempString[0]);
-//
-//				addBlock((int)(timePeriod*(ASH/800.0)), 0xAA6DDE3B, lin_staff[0]);
-//
-//				toast("" + timePeriod);
-//			}
-//			else{
-				tempString = timeList.get(i).split(":");
-				
+			//			if (prevTime == 0){
+			//				
+			//				Log.i("progress", ""+tempString);
+			//				tempString = timeList.get(i).split(":");
+			//				timePeriod = Integer.parseInt(tempString[1])-Integer.parseInt(tempString[0]);
+			//
+			//				addBlock((int)(timePeriod*(ASH/800.0)), 0xAA6DDE3B, lin_staff[0]);
+			//
+			//				toast("" + timePeriod);
+			//			}
+			//			else{
+			tempString = timeList.get(i).split(":");
 
-				timeCalc(timeList.get(i));
-				//convert into 100 for minutes
-				minutes = tempString[0].substring(tempString[0].length()-2);
-				if (!minutes.equals("00")) 
-					tempString[0] = tempString[0].substring(0,tempString[0].length()-2) 
-							+ 1.667*(Integer.parseInt(minutes));
-				
-				minutes = tempString[1].substring(tempString[1].length()-2);
-				if (!minutes.equals("00")) 
-					tempString[1] = tempString[1].substring(0,tempString[1].length()-2) 
-							+ 1.667*(Integer.parseInt(minutes));
-				
-				timePeriod = Double.parseDouble(tempString[1]) - 
-						Double.parseDouble(tempString[0]);
 
-				addBlock((int)(timePeriod*(ASH/800)), 0xAA6DDE3B, lin_staff[0]);
+			timeCalc(timeList.get(i));
+			//convert into 100 for minutes
+			minutes = tempString[0].substring(tempString[0].length()-2);
+			if (!minutes.equals("00")) 
+				tempString[0] = tempString[0].substring(0,tempString[0].length()-2) 
+				+ 1.667*(Integer.parseInt(minutes));
 
-//			}
+			minutes = tempString[1].substring(tempString[1].length()-2);
+			if (!minutes.equals("00")) 
+				tempString[1] = tempString[1].substring(0,tempString[1].length()-2) 
+				+ 1.667*(Integer.parseInt(minutes));
+
+			timePeriod = Double.parseDouble(tempString[1]) - 
+					Double.parseDouble(tempString[0]);
+
+			addBlock((int)(timePeriod*(ASH/800)), 0xAA6DDE3B, lin_staff[0]);
+
+			//			}
 		}	
 	}
 
@@ -219,46 +215,46 @@ public class MainActivity extends Activity {
 		box.setBackgroundColor(color);
 		linearLayout.addView(box);
 	}
-	
+
 	public int timeCalc(String s) {
 		//100  = 1 hour
 		String times[] = s.split(":");
 		double tempMin, tempHour, ret;
 		String minutes0, minutes1, hours0, hours1;
-		
+
 		minutes0 = times[0].substring(times[0].length()-2);
 		minutes1 = times[1].substring(times[1].length()-2);
-		
+
 		hours0 = times[0].substring(0,2);
 		hours1 = times[1].substring(0,2);
-		
+
 		tempMin = (Double.parseDouble(minutes1)-Double.parseDouble(minutes0))*(5/3.0);
 		tempHour = Double.parseDouble(hours1) - Double.parseDouble(hours0);
-		
+
 		ret = Double.parseDouble(hours1)*100+Double.parseDouble(minutes1);
-		
+
 		//staffTimeList.get(0).add("0938:1141");
-		
+
 		Log.i("progress", "minutes0: "+ minutes0);
 		Log.i("progress", "minutes0: "+ minutes0);
 		Log.i("progress", "hours1: "+ Double.parseDouble(hours1)*100+Double.parseDouble(minutes1));
 		Log.i("progress", "hours0: "+ Double.parseDouble(hours0)*100+Double.parseDouble(minutes0));
-		
-//		if (!minutes.equals("00")) 
-//			times[0] = times[0].substring(0,times[0].length()-2) 
-//					+ 1.667*(Integer.parseInt(minutes));
-		
-//		toast( ""+tempString[0]);
-//		
-//		minutes = tempString[1].substring(tempString[1].length()-2);
-//		if (!minutes.equals("00")) 
-//			tempString[1] = tempString[1].substring(0,tempString[1].length()-2) 
-//					+ 1.667*(Integer.parseInt(minutes));
-//		
-//		timePeriod = Double.parseDouble(tempString[1]) - 
-//				Double.parseDouble(tempString[0]);
-//
-//		addBlock((int)(timePeriod*(ASH/800)), 0xAA6DDE3B, lin_staff[0]);
+
+		//		if (!minutes.equals("00")) 
+		//			times[0] = times[0].substring(0,times[0].length()-2) 
+		//					+ 1.667*(Integer.parseInt(minutes));
+
+		//		toast( ""+tempString[0]);
+		//		
+		//		minutes = tempString[1].substring(tempString[1].length()-2);
+		//		if (!minutes.equals("00")) 
+		//			tempString[1] = tempString[1].substring(0,tempString[1].length()-2) 
+		//					+ 1.667*(Integer.parseInt(minutes));
+		//		
+		//		timePeriod = Double.parseDouble(tempString[1]) - 
+		//				Double.parseDouble(tempString[0]);
+		//
+		//		addBlock((int)(timePeriod*(ASH/800)), 0xAA6DDE3B, lin_staff[0]);
 		return 0;
 	}
 
@@ -278,11 +274,12 @@ public class MainActivity extends Activity {
 
 	public int toDP(int px)
 	{ 	return (int)(px/this.context.getResources().getDisplayMetrics().density); }
-	
+
 	private int toPX(int dp)
 	{ 	return (int)(dp*this.context.getResources().getDisplayMetrics().density); }
-	
+
 	private static void toast(String text)
 	{ 	Toast.makeText(context, text, Toast.LENGTH_LONG).show(); }
-
 }
+
+
