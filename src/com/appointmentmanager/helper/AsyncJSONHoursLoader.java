@@ -9,6 +9,8 @@ import org.json.JSONObject;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 
 public class AsyncJSONHoursLoader extends AsyncTask<Void, Void, HashMap<String, Object>>{
 
@@ -19,6 +21,7 @@ public class AsyncJSONHoursLoader extends AsyncTask<Void, Void, HashMap<String, 
 	public AsyncJSONHoursLoader(String url) {
 		//		Log.e("progress", "Async onstart URL");
 		this.url = url;
+//		this.pb = pb;
 	}
 
 	protected HashMap<String, Object> doInBackground(Void... params) {

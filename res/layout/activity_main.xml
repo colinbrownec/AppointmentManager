@@ -12,7 +12,7 @@
         android:layout_alignParentTop="true"
         android:background="#2d2d2d" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/action_bar"
         android:layout_width="fill_parent"
         android:layout_height="46dp"
@@ -20,17 +20,43 @@
         android:background="@color/holo_title_bg"
         android:orientation="horizontal" >
 
+        <Button
+            android:id="@+id/back"
+            android:layout_width="56dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/holodark_darkblue"
+            android:drawableRight="@drawable/new_logo"
+            android:layout_alignParentLeft="true"
+            android:gravity="fill_vertical"
+            android:paddingRight="8dp" />
+
         <TextView
             android:id="@+id/tv"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Envy Nails Appointment Manager"
-            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
             android:paddingLeft="8dp"
-            android:textSize="20dp"
+            android:text="Envy Nails &amp; Spa"
+            android:layout_toRightOf="@id/back"
+            android:gravity="center_horizontal|center_vertical"
             android:textColor="@color/dark_blue"
+            android:textSize="18dp"
             android:textStyle="bold" />
-    </LinearLayout>
+        
+        <Button
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@drawable/holodark_darkblue"
+            android:layout_alignParentRight="true"
+            android:onClick="goCheckStatus"
+            android:text="STATUS:"
+            android:paddingLeft="12dp"
+            android:textColor="@color/white"
+            android:textSize="13dp"
+            android:drawableRight="@drawable/l_action_help"
+            android:gravity="fill_vertical"
+            android:paddingRight="8dp" />
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/main_grid"
@@ -43,24 +69,53 @@
         android:padding="8dp" >
 
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/main"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
+            android:padding="3dp"
             android:src="@drawable/logo_main_big" />
-
-        <!--  
-        <TextView
-            android:id="@+id/tv"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Envy Nails" /> -->
     </LinearLayout>
 
-    <View
+    <LinearLayout
+        android:id="@+id/status_container"
         android:layout_width="fill_parent"
-        android:layout_height="1dp"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/bottom_bar"
-        android:background="#FFF" />
+        android:background="@drawable/white_darkblue"
+        android:onClick="goCheckStatus"
+        android:orientation="horizontal"
+        android:padding="16dp" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reservation Status: "
+                android:textColor="@color/gray8"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(tap to view details)"
+                android:textColor="@color/black5"
+                android:textSize="12dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pending"
+            android:textColor="@color/black3"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/bottom_bar"
@@ -78,7 +133,7 @@
             android:drawableTop="@drawable/l_content_event"
             android:onClick="goSchedule"
             android:paddingBottom="4dp"
-            android:paddingTop="5dp"
+            android:paddingTop="3dp"
             android:text="Schedules"
             android:textColor="#DDDDDD"
             android:textSize="14dp"
@@ -90,28 +145,13 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:background="@drawable/holodark_darkblue"
-            android:drawableTop="@drawable/l_social_person"
-            android:onClick="goNothing"
+            android:drawableTop="@drawable/l_social_group"
+            android:onClick="goEmployeeProfiles"
             android:paddingBottom="4dp"
             android:paddingTop="3dp"
-            android:text="Profile"
+            android:text="Employees"
             android:textColor="#DDDDDD"
-            android:textSize="16dp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/references"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:background="@drawable/holodark_darkblue"
-            android:drawableTop="@drawable/l_action_settings"
-            android:onClick="goNothing"
-            android:paddingBottom="4dp"
-            android:paddingTop="3dp"
-            android:text="Settings"
-            android:textColor="#DDDDDD"
-            android:textSize="16dp"
+            android:textSize="14dp"
             android:textStyle="bold" />
 
         <Button
@@ -120,13 +160,27 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:background="@drawable/holodark_darkblue"
-            android:drawableTop="@drawable/l_action_about"
+            android:drawableTop="@drawable/l_collections_labels"
             android:onClick="goNothing"
             android:paddingBottom="4dp"
             android:paddingTop="3dp"
-            android:text="About"
+            android:text="Services"
             android:textColor="#DDDDDD"
-            android:textSize="16dp"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/holodark_darkblue"
+            android:drawableTop="@drawable/l_action_settings"
+            android:onClick="goSettings"
+            android:paddingBottom="2dp"
+            android:paddingTop="3dp"
+            android:text="Settings"
+            android:textColor="#DDDDDD"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 

@@ -52,11 +52,15 @@ public class JSONParser {
 			is = httpEntity.getContent();			
 
 		} catch (UnsupportedEncodingException e) {
+			Log.v("progress", "UnsupportedEncodingException");
 			e.printStackTrace();
 		} catch (ClientProtocolException e) {
+			Log.v("progress", "ClientProtocolException");
 			e.printStackTrace();
 		} catch (IOException e) {
+			Log.v("progress", "IOException also no Internet");
 			e.printStackTrace();
+			return null;
 		}
 		
 		//Reads in line by line and builds the string with StringBuilder

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/holo_white"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/employee_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:background="@drawable/holodark_darkblue"
+        android:gravity="center_horizontal"
+        android:text="Employee: La'Shonda"
+        android:textColor="@color/dark_blue"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/selected_time_period"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:gravity="center_horizontal"
+        android:text="Selected time: 1:00 to 1:15"
+        android:background="@drawable/holodark_darkblue"
+        android:textColor="@color/white3"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dip"
+        android:layout_marginTop="8dip"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price:"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/service_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dip"
+            android:text="$50.00"
+            android:textColor="@color/dark_blue"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spin_service"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="8dip"
+        android:layout_marginRight="8dip"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dip"
+            android:text="Duration:"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/service_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dip"
+            android:text="50 min"
+            android:textColor="@color/dark_blue"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spin_time"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="24dip"
+        android:layout_marginLeft="8dip"
+        android:layout_marginRight="8dip"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/separator_color" />
+
+    <LinearLayout
+        android:id="@+id/action_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="46dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/holowhite_darkblue"
+            android:gravity="center_horizontal|center_vertical"
+            android:onClick="goCalenderCancel"
+            android:text="Cancel"
+            android:textSize="16dp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="@color/separator_color" />
+
+        <Button
+            android:id="@+id/accept"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/holowhite_darkblue"
+            android:gravity="center_horizontal|center_vertical"
+            android:onClick="goCalenderCancel"
+            android:text="Book"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+</LinearLayout>

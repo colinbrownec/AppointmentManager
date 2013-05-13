@@ -20,6 +20,7 @@
         android:id="@+id/action_bar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@color/holo_white"
         android:orientation="horizontal"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"

@@ -12,7 +12,7 @@
         android:layout_above="@+id/action_bar"
         android:background="#2d2d2d" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/action_bar"
         android:layout_width="fill_parent"
         android:layout_height="46dp"
@@ -34,146 +34,48 @@
             android:textStyle="bold" />
 
         <View
-            android:layout_width="1dp"
+            android:id="@+id/backseparator"
+            android:layout_width="0dp"
             android:layout_height="fill_parent"
+            android:layout_toRightOf="@+id/back"
             android:background="#2d2d2d" />
 
-        <HorizontalScrollView
-            android:id="@+id/horizontalscrollview"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:background="#FFF"
-            android:scrollbars="none" >
+        <Spinner
+            android:id="@+id/spin_week"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_toLeftOf="@+id/calendarseparator"
+            android:layout_toRightOf="@+id/backseparator"
+            android:background="@drawable/btn_dropdown"
+            android:clickable="true"
+            android:divider="#898989"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:spinnerMode="dropdown"
+            android:textColor="@color/dark_blue"
+            android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:orientation="horizontal" >
+        <View
+            android:id="@+id/calendarseparator"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_toLeftOf="@+id/calendar"
+            android:background="#2d2d2d" />
 
-                <Button
-                    android:id="@+id/butt_day0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:background="@drawable/holodark_darkblue"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:onClick="goChooseDay"
-                    android:padding="8dp"
-                    android:text="MONDAY"
-                    android:textColor="@color/dark_blue"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="fill_parent"
-                    android:background="#2d2d2d" />
-
-                <Button
-                    android:id="@+id/butt_day1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:background="@drawable/holodark_darkblue"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:onClick="goChooseDay"
-                    android:padding="8dp"
-                    android:text="TUESDAY"
-                    android:textColor="#555"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="fill_parent"
-                    android:background="#2d2d2d" />
-
-                <Button
-                    android:id="@+id/butt_day2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:background="@drawable/holodark_darkblue"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:onClick="goChooseDay"
-                    android:padding="8dp"
-                    android:text="WEDNESDAY"
-                    android:textColor="#555"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="fill_parent"
-                    android:background="#2d2d2d" />
-
-                <Button
-                    android:id="@+id/butt_day3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:background="@drawable/holodark_darkblue"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:onClick="goChooseDay"
-                    android:padding="8dp"
-                    android:tag="day0"
-                    android:text="THURSDAY"
-                    android:textColor="#555"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="fill_parent"
-                    android:background="#2d2d2d" />
-
-                <Button
-                    android:id="@+id/butt_day4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:background="@drawable/holodark_darkblue"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:onClick="goChooseDay"
-                    android:padding="8dp"
-                    android:text="FRIDAY"
-                    android:textColor="#555"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="fill_parent"
-                    android:background="#2d2d2d" />
-
-                <Button
-                    android:id="@+id/butt_day5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:background="@drawable/holodark_darkblue"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:onClick="goChooseDay"
-                    android:padding="8dp"
-                    android:text="SATURDAY"
-                    android:textColor="#555"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="fill_parent"
-                    android:background="#2d2d2d" />
-
-                <Button
-                    android:id="@+id/butt_day6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:background="@drawable/holodark_darkblue"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:onClick="goChooseDay"
-                    android:padding="8dp"
-                    android:text="SUNDAY"
-                    android:textColor="#555"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </HorizontalScrollView>
-    </LinearLayout>
+        <Button
+            android:id="@+id/calendar"
+            android:layout_width="56dp"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/holodark_darkblue"
+            android:drawableLeft="@drawable/l_collections_go_to_today"
+            android:gravity="fill_vertical"
+            android:onClick="goCalenderView"
+            android:paddingLeft="12dp"
+            android:textColor="#DDD"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/main_grid"
@@ -183,7 +85,8 @@
         android:layout_below="@+id/action_bar"
         android:background="#FFF"
         android:orientation="horizontal"
-        android:padding="8dp" >
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp" >
 
         <LinearLayout
             android:id="@+id/time_list"
@@ -191,14 +94,15 @@
             android:layout_height="fill_parent"
             android:orientation="vertical"
             android:paddingBottom="4dp"
+            android:paddingLeft="4dp"
             android:paddingTop="64dp" >
 
+            <!-- 
             <TextView
                 android:id="@+id/sweg"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#DDD"
                 android:gravity="right"
                 android:text="9:30"
                 android:textSize="16dp"
@@ -208,7 +112,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#BBB"
                 android:gravity="right"
                 android:text="10:30"
                 android:textSize="16dp"
@@ -218,7 +121,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#DDD"
                 android:gravity="right"
                 android:text="11:30"
                 android:textSize="16dp"
@@ -228,7 +130,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#BBB"
                 android:gravity="right"
                 android:text="12:30"
                 android:textSize="16dp"
@@ -238,7 +139,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#DDD"
                 android:gravity="right"
                 android:text="1:30"
                 android:textSize="16dp"
@@ -248,7 +148,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#BBB"
                 android:gravity="right"
                 android:text="2:30"
                 android:textSize="16dp"
@@ -258,7 +157,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#DDD"
                 android:gravity="right"
                 android:text="3:30"
                 android:textSize="16dp"
@@ -268,7 +166,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#BBB"
                 android:gravity="right"
                 android:text="4:30"
                 android:textSize="16dp"
@@ -278,18 +175,20 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#DDD"
                 android:gravity="right"
                 android:text="5:30"
                 android:textSize="16dp"
                 android:textStyle="bold" />
+                -->
         </LinearLayout>
 
         <View
-            android:layout_width="2dp"
+            android:layout_width="1dp"
             android:layout_height="fill_parent"
             android:layout_marginLeft="4dp"
-            android:background="#888" />
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/separator_color" />
 
         <HorizontalScrollView
             android:id="@+id/hsv_employeeList"
@@ -298,7 +197,7 @@
             android:background="#FFF" >
 
             <LinearLayout
-                android:id="@+id/lin_staff_list"
+                android:id="@+id/schedule_container"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:orientation="horizontal"
@@ -311,7 +210,7 @@
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:layout_above="@+id/bottom_bar"
-        android:background="#FFF" />
+        android:background="@color/separator_color" />
 
     <LinearLayout
         android:id="@+id/bottom_bar"
@@ -320,34 +219,48 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal" >
 
-        <Button
-            android:layout_width="0dp"
+       <Button
+            android:id="@+id/prevDay"
+            android:layout_width="64dp"
             android:layout_height="fill_parent"
-            android:layout_weight="1"
             android:background="@drawable/holodark_darkblue"
+            android:paddingLeft="14dp"
+            android:drawableLeft="@drawable/l_navigation_previous_item"
             android:gravity="center_horizontal|center_vertical"
-            android:onClick="goCalenderView"
-            android:text="CALENDAR"
-            android:textColor="#DDD"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            android:onClick="goPreviousDay"
+            android:textSize="14dp" />
+        
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="@color/holo_subtitle_bg" />
+        
+         <Button
+            android:id="@+id/scheduleButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:background="@drawable/holodark_darkblue"
+            android:text="Schedule for May 15, 2013"
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="14dp" 
+            android:textColor="@color/white"/>
 
         <View
             android:layout_width="1dp"
             android:layout_height="fill_parent"
-            android:background="#2d2d2d" />
+            android:background="@color/holo_subtitle_bg" />
 
         <Button
-            android:layout_width="0dp"
+            android:id="@+id/nextDay"
+            android:layout_width="64dp"
             android:layout_height="fill_parent"
-            android:layout_weight="1"
             android:background="@drawable/holodark_darkblue"
+            android:paddingRight="14dp"
+            android:drawableRight="@drawable/l_navigation_next_item"
             android:gravity="center_horizontal|center_vertical"
-            android:onClick="goMakeReservation"
-            android:text="MAKE \n RESERVATION"
-            android:textColor="#DDD"
-            android:textSize="14dp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            android:onClick="goNextDay"
+            android:textSize="14dp" />
+    </LinearLayout> 
 
 </RelativeLayout>

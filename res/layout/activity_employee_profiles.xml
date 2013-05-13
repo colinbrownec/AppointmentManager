@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".EmployeeProfiles" >
+
+    <View
+        android:id="@+id/top_line"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/action_bar"
+        android:background="#2d2d2d" />
+
+    <RelativeLayout
+        android:id="@+id/action_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="46dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/holo_title_bg"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="72dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/holodark_darkblue"
+            android:drawableLeft="@drawable/l_navigation_previous_item"
+            android:drawableRight="@drawable/new_logo"
+            android:gravity="fill_vertical"
+            android:onClick="goBackMain"
+            android:paddingRight="8dp"
+            android:textColor="#DDD"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@+id/back"
+            android:paddingLeft="8dp"
+            android:text="Employee Profiles"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="@color/dark_blue"
+            android:textStyle="bold"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/employeeListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/action_bar"
+        android:background="@color/white"
+        android:paddingTop="2dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"/>
+
+</RelativeLayout>
