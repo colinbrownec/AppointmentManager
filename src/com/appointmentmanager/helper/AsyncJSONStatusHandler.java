@@ -42,7 +42,7 @@ public class AsyncJSONStatusHandler extends AsyncTask<Void, Void, HashMap<String
 	}
 
 	protected HashMap<String, String> doInBackground(Void... params) {
-		url = "http://ienvynails.com/appman/json/nextappointment.php?name=Dr.BrightSwagger&phone=715-271-1913";
+		url = BASE_REQUEST_URL + GetInfo("main", "NAME") + "&phone=" + GetInfo("main", "PHONE_NUMBER");
 		HashMap<String, String> data = new HashMap<String, String> ();
 
 		//hollistic
