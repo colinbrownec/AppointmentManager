@@ -1,0 +1,266 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StaffTimeList" >
+
+    <View
+        android:id="@+id/top_line"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/action_bar"
+        android:background="#2d2d2d" />
+
+    <RelativeLayout
+        android:id="@+id/action_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="46dp"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="72dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/holodark_darkblue"
+            android:drawableLeft="@drawable/l_navigation_previous_item"
+            android:drawableRight="@drawable/new_logo"
+            android:gravity="fill_vertical"
+            android:onClick="goBackMain"
+            android:paddingRight="8dp"
+            android:textColor="#DDD"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/backseparator"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@+id/back"
+            android:background="#2d2d2d" />
+
+        <Spinner
+            android:id="@+id/spin_week"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_toLeftOf="@+id/calendarseparator"
+            android:layout_toRightOf="@+id/backseparator"
+            android:background="@drawable/btn_dropdown"
+            android:clickable="true"
+            android:divider="#898989"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:spinnerMode="dropdown"
+            android:textColor="@color/dark_blue"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/calendarseparator"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_toLeftOf="@+id/calendar"
+            android:background="#2d2d2d" />
+
+        <Button
+            android:id="@+id/calendar"
+            android:layout_width="56dp"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/holodark_darkblue"
+            android:drawableLeft="@drawable/l_collections_go_to_today"
+            android:gravity="fill_vertical"
+            android:onClick="goCalenderView"
+            android:paddingLeft="12dp"
+            android:textColor="#DDD"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/main_grid"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/bottom_bar"
+        android:layout_below="@+id/action_bar"
+        android:background="#FFF"
+        android:orientation="horizontal"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp" >
+
+        <LinearLayout
+            android:id="@+id/time_list"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingBottom="4dp"
+            android:paddingLeft="4dp"
+            android:paddingTop="64dp" >
+
+            <!-- 
+            <TextView
+                android:id="@+id/sweg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="9:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="10:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="11:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="12:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="1:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="2:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="3:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="4:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="5:30"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+                -->
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/separator_color" />
+
+        <HorizontalScrollView
+            android:id="@+id/hsv_employeeList"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="#FFF" >
+
+            <LinearLayout
+                android:id="@+id/schedule_container"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal"
+                android:paddingRight="4dp" >
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/bottom_bar"
+        android:background="@color/separator_color" />
+
+    <LinearLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="46dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+       <Button
+            android:id="@+id/prevDay"
+            android:layout_width="64dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/holodark_darkblue"
+            android:paddingLeft="14dp"
+            android:drawableLeft="@drawable/l_navigation_previous_item"
+            android:gravity="center_horizontal|center_vertical"
+            android:onClick="goPreviousDay"
+            android:textSize="14dp" />
+        
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="@color/holo_subtitle_bg" />
+        
+         <Button
+            android:id="@+id/scheduleButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:background="@drawable/holodark_darkblue"
+            android:text="Schedule for May 15, 2013"
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="14dp" 
+            android:textColor="@color/white"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="@color/holo_subtitle_bg" />
+
+        <Button
+            android:id="@+id/nextDay"
+            android:layout_width="64dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/holodark_darkblue"
+            android:paddingRight="14dp"
+            android:drawableRight="@drawable/l_navigation_next_item"
+            android:gravity="center_horizontal|center_vertical"
+            android:onClick="goNextDay"
+            android:textSize="14dp" />
+    </LinearLayout> 
+
+</RelativeLayout>

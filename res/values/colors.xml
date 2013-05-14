@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="white">#FFFFFF</color>
-    <color name="holo_title_bg">#222222</color>
+    <color name="white3">#DDD</color>
+    
+    <color name="holo_title_bg">#262626</color>
+    <color name="holo_subtitle_bg">#303030</color>
+    <color name="holo_white">#f7f7f7</color>
+    
  	<color name="white4">#BBBBBB</color>
+ 	
+ 	<color name="light_blue">#A8DFF4</color>
  	<color name="dark_blue">#0099CC</color>
+ 	
+ 	 <color name="separator_color">#DFDFDF</color>
+ 	
+ 	<color name="black5">#555</color>
+ 	<color name="black3">#333</color>
+ 	<color name="black">#000</color>
+ 	
+ 	<color name="gray8">#888888</color>
  	
     <!-- 
     <color name="white">#FFFFFF</color>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/holo_white"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="46dp"
+        android:background="@drawable/holodark_darkblue"
+        android:gravity="center"
+        android:text="SETTINGS"
+        android:textColor="@color/dark_blue"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/name_edittext"
+        android:layout_width="fill_parent"
+        android:hint="enter your name"
+        android:layout_margin="8dp"
+        android:layout_height="56dp" />
+
+    <View
+        android:layout_marginTop="12dp"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/separator_color" />
+
+    <Button
+        android:id="@+id/accept"
+        android:layout_width="fill_parent"
+        android:layout_height="46dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/holowhite_darkblue"
+        android:gravity="center_horizontal|center_vertical"
+        android:onClick="goCalenderCancel"
+        android:text="Accept"
+        android:textSize="16dp" />
+
+</LinearLayout>
