@@ -15,6 +15,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
@@ -607,8 +608,9 @@ public class StaffTimeList extends Activity{
 						tempString += tempArr[1]+"&e_id="; 
 						tempString += selectedEmployeeID+"&s_id=";
 						tempString += selectedServiceID+"&name=";
-						tempString += "Dr.BrightSwagger"+"&phone="; //zz name
-						tempString += "715-271-1913"; //zz phone
+						tempString += GetInfo("main", "NAME")+"&phone="; // fixed info!
+						tempString += GetInfo("main", "PHONE_NUMBER");
+
 						Log.i("progress", tempString);
 						
 						
@@ -623,6 +625,13 @@ public class StaffTimeList extends Activity{
 		}
 	}
 	
+	private String GetInfo(String tag, String which)
+	{	
+		SharedPreferences sharedPreferences = context.getSharedPreferences(tag, Context.MODE_PRIVATE);
+		String savedStr = sharedPreferences.getString(which, "");
+		return savedStr;
+	}	  	
+
 	protected Dialog onCreateDialog(int id) {
 		switch (id)
 		{
