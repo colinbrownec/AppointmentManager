@@ -59,7 +59,7 @@ public class MainActivity extends Activity{
 	public void onStart() {
 		super.onStart();
 
-		toast(""+GetInfo("main", "MINIMUM_APPOINTMENT_TIME"));
+//		toast(""+GetInfo("main", "MINIMUM_APPOINTMENT_TIME"));
 	}
 
 	protected void onPrepareDialog(final int id, final Dialog v) {

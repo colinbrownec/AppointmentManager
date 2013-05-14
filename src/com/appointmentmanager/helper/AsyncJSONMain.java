@@ -44,7 +44,7 @@ public class AsyncJSONMain extends AsyncTask<Void, Void, HashMap<String, Object>
 
 	protected void onPreExecute() {
 		progressDialog= ProgressDialog.show(activity, "Loading Service Information",
-				"Hacking the mainframe...", true);
+				"Retrieving data...", true);
 		//do initialization of required objects objects here                
 	}
 
